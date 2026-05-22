@@ -1,0 +1,5 @@
+com/jobqueue/worker/entity/Job.class
+com/jobqueue/worker/repository/JobRepository.class
+com/jobqueue/worker/service/WorkerService.class
+com/jobqueue/worker/entity/JobStatus.class
+com/jobqueue/worker/WorkerApplication.class

@@ -1,0 +1,23 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: worker-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jobqueue
+    username: jobuser
+    password: jobpassword
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: worker-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus

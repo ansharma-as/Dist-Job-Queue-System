@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: job-api-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jobqueue
+    username: jobuser
+    password: jobpassword
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus

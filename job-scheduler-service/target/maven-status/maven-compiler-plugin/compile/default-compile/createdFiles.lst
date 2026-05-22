@@ -1,0 +1,5 @@
+com/jobqueue/scheduler/entity/Job.class
+com/jobqueue/scheduler/service/SchedulerService.class
+com/jobqueue/scheduler/repository/JobRepository.class
+com/jobqueue/scheduler/entity/JobStatus.class
+com/jobqueue/scheduler/SchedulerApplication.class
