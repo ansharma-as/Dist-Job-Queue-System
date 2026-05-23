@@ -16,9 +16,11 @@ public class Job {
     private String type;
 
     @Column(columnDefinition = "jsonb", nullable = false)
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     private String payload;
 
     @Enumerated(EnumType.STRING)
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.NAMED_ENUM)
     @Column(nullable = false)
     private JobStatus status = JobStatus.PENDING;
 
