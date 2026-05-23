@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/jobs")
+@CrossOrigin("*")
 public class JobController {
 
     private final JobService jobService;
