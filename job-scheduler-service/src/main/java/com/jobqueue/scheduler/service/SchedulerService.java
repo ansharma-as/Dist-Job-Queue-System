@@ -31,7 +31,7 @@ public class SchedulerService {
             jobRepository.save(job);
             
             // Publish to Kafka
-            kafkaTemplate.send("job-pending", job.getType(), job.getId().toString());
+            kafkaTemplate.send("job-pending", job.getId().toString(), job.getId().toString());
         }
         
         if (!pendingJobs.isEmpty()) {

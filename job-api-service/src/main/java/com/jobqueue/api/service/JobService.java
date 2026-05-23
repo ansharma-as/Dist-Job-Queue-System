@@ -29,6 +29,18 @@ public class JobService {
         return jobRepository.save(job);
     }
 
+    @Transactional
+    public List<Job> submitJobs(List<JobRequest> requests) {
+        List<Job> jobs = requests.stream().map(request -> {
+            Job job = new Job();
+            job.setType(request.getType());
+            job.setPayload(request.getPayload() != null ? request.getPayload() : "{}");
+            job.setStatus(JobStatus.PENDING);
+            return job;
+        }).toList();
+        return jobRepository.saveAll(jobs);
+    }
+
     @Transactional(readOnly = true)
     public Job getJob(UUID id) {
         return jobRepository.findById(id).orElseThrow(() -> new RuntimeException("Job not found"));

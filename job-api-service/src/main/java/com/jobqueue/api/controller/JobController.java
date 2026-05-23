@@ -27,6 +27,12 @@ public class JobController {
         return ResponseEntity.ok(job);
     }
 
+    @PostMapping("/bulk")
+    public ResponseEntity<List<Job>> submitJobs(@RequestBody List<JobRequest> requests) {
+        List<Job> jobs = jobService.submitJobs(requests);
+        return ResponseEntity.ok(jobs);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Job> getJob(@PathVariable UUID id) {
         return ResponseEntity.ok(jobService.getJob(id));

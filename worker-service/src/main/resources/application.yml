@@ -10,6 +10,7 @@ spring:
     password: jobpassword
   kafka:
     bootstrap-servers: localhost:9092
+    client-id: worker-${random.uuid}
     consumer:
       group-id: worker-group
       auto-offset-reset: earliest

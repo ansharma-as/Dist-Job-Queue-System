@@ -19,7 +19,7 @@ public class WorkerService {
         this.jobRepository = jobRepository;
     }
 
-    @KafkaListener(topics = "job-pending", groupId = "worker-group")
+    @KafkaListener(topics = "job-pending", groupId = "worker-group", concurrency = "10")
     public void processJob(ConsumerRecord<String, String> record) {
         UUID jobId = UUID.fromString(record.value());
         
@@ -29,12 +29,12 @@ public class WorkerService {
             markJobAsProcessing(jobId);
             
             // Simulating heavy work (e.g., video processing)
-            Thread.sleep(3000 + (long)(Math.random() * 2000));
+            // Thread.sleep(3000 + (long)(Math.random() * 2000));
             
             // 10% chance of random failure
-            if (Math.random() < 0.1) {
-                throw new RuntimeException("Random simulated failure");
-            }
+            // if (Math.random() < 0.1) {
+            //     throw new RuntimeException("Random simulated failure");
+            // }
             
             markJobAsCompleted(jobId);
             System.out.println("Worker completed job: " + jobId);
