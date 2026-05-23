@@ -5,12 +5,12 @@ spring:
   application:
     name: job-api-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/jobqueue
+    url: jdbc:postgresql://localhost:5433/jobqueue
     username: jobuser
     password: jobpassword
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none
     show-sql: false
 
 management:

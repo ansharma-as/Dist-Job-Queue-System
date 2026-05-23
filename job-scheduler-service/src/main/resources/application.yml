@@ -5,7 +5,7 @@ spring:
   application:
     name: job-scheduler-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/jobqueue
+    url: jdbc:postgresql://localhost:5433/jobqueue
     username: jobuser
     password: jobpassword
   kafka:
